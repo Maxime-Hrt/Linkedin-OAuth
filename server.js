@@ -32,8 +32,8 @@ app.get('/auth/linkedin/callback', (req, res) => {
 
     request(options, function (error, response, body) {
         if (error) throw new Error(error)
-        const { access_token } = JSON.parse(body)
-        res.send('Access Token: ' + access_token)
+        const { access_token, refresh_token } = JSON.parse(body)
+        res.send('Access Token: ' + access_token + '<br>Refresh Token: ' + refresh_token)
     })
 })
 
